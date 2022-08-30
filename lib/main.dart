@@ -9,7 +9,7 @@ void main() => runApp(MaterialApp(
   * I'm overriding this with Home late I'll channe it to Loading Screen
   *  again
   * */
-      initialRoute: '/home',
+      initialRoute: '/',
       routes: {
         '/': (context) => Loading(),
         '/home': (context) => Home(),
