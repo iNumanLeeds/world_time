@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-
 import '../services/world_time.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class Loading extends StatefulWidget {
   const Loading({Key? key}) : super(key: key);
@@ -20,10 +20,11 @@ class _LoadingState extends State<Loading> {
     /*
     * Now to send data from here to home widget
     * */
-    Navigator.pushReplacementNamed(context, '/home', arguments:  {
+    Navigator.pushReplacementNamed(context, '/home', arguments: {
       'location': instance.location,
       'flag': instance.flag,
-      'time': instance.time
+      'time': instance.time,
+      'isDayTime': instance.isDaytime,
     });
   }
 
@@ -35,10 +36,15 @@ class _LoadingState extends State<Loading> {
 
   @override
   Widget build(BuildContext context) {
+    const spinkit = SpinKitSpinningLines(
+      color: Colors.white,
+      size: 50.0,
+    );
+
     return Scaffold(
-      body: Padding(
-        padding: EdgeInsets.all(50.0),
-        child: Text('Loading'),
+      backgroundColor: Colors.blue[900],
+      body: Center(
+        child: spinkit,
       ),
     );
   }
